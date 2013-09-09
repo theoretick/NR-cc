@@ -9,20 +9,20 @@ FILENAMES = [
   ]
 
 # how many records to generate for each file
-RECORD_COUNT = 10000
+RECORD_COUNT = 500_000
 
 def mocker
+
+  mock_user_id = 1
 
   FILENAMES.each do |filename|
     f = File.open(filename, 'w')
 
     RECORD_COUNT.times do
-      # TODO: modify to guarantee user_id uniqueness
-      mock_user_id  = Random.rand(2000).to_s
-      mock_user_age = Random.rand(80).to_s
-      mock_line     = mock_user_id + ',' + mock_user_age
+      mock_user_id  += 1
+      mock_user_age = Random.rand(18..80)
 
-      f.puts mock_line
+      f.puts "#{mock_user_id},#{mock_user_age}"
     end
 
     f.close
