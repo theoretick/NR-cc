@@ -5,7 +5,10 @@ gem 'pry', require: false
 
 gem 'rspec'
 
-# for guard automation awesomeness
+
+#---------------------------------
+# Guard for testing
+#---------------------------------
 gem 'guard', require: false
 gem 'guard-rspec', require: false
 gem 'guard-bundler', require: false
