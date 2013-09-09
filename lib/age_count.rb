@@ -12,9 +12,7 @@ class AgeCount
 
   attr_reader :age_table
 
-  def initialize; end
-
-  def run
+  def initialize
     @age_table = Hash.new{ 0 }
     sum_ages
     display_ages
