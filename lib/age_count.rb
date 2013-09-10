@@ -13,7 +13,7 @@ class AgeCount
   attr_reader :age_table
 
   def initialize
-    @age_table = Hash.new{ 0 }
+    @age_table = Array.new(100, 0)
     sum_ages
     display_ages
   end
@@ -38,8 +38,8 @@ class AgeCount
   # - aggregates ages as array of 2-item tuples: [age, age_count]
   # returns array of tuples
   def display_ages
-    @age_table.each_pair do |age, age_count|
-      puts "%i,%i" % [age, age_count]
+    @age_table.each_with_index do |age_count, age|
+      puts "%i,%i" % [age, age_count] unless age_count == 0
     end
   end
 
